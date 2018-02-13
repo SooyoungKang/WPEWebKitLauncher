@@ -49,7 +49,7 @@ WKPageNavigationClientV0 s_navigationClient = {
     },
     // decidePolicyForPluginLoad
 	//[](WKPageRef page, WKPluginLoadPolicy currentPluginLoadPolicy, WKDictionaryRef pluginInfoDictionary, WKStringRef* unavailabilityDescription, const void* clientInfo) {
-	[](WKPageRef , WKPluginLoadPolicy , WKDictionaryRef , WKStringRef* , const void* ) {
+	(*WKPageNavigationDecidePolicyForPluginLoadCallback)(WKPageRef , WKPluginLoadPolicy , WKDictionaryRef , WKStringRef* , const void* ) {
 		fprintf(stderr, "[WPELauncher] decidePolicyForPluginLoad\n");
 	},
     // didStartProvisionalNavigation
