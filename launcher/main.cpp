@@ -49,8 +49,8 @@ WKPageNavigationClientV0 s_navigationClient = {
     },
     // decidePolicyForPluginLoad
 	//[](WKPageRef page, WKPluginLoadPolicy currentPluginLoadPolicy, WKDictionaryRef pluginInfoDictionary, WKStringRef* unavailabilityDescription, const void* clientInfo) {
-	(*WKPageNavigationDecidePolicyForPluginLoadCallback)(WKPageRef , WKPluginLoadPolicy , WKDictionaryRef , WKStringRef* , const void* ) {
-		fprintf(stderr, "[WPELauncher] decidePolicyForPluginLoad\n");
+	[](WKPageRef page, WKPluginLoadPolicy , WKDictionaryRef , WKStringRef* , const void* ) {
+		fprintf(stderr, "[WPELauncher] decidePolicyForPluginLoad:%s\n", page);
 	},
     // didStartProvisionalNavigation
 	[](WKPageRef page, WKNavigationRef navigation, WKTypeRef userData, const void* clientInfo){
