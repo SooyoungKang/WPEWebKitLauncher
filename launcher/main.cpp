@@ -87,7 +87,9 @@ WKPageNavigationClientV0 s_navigationClient = {
 
 int main(int argc, char* argv[])
 {
-    const char* url = "http://youtube.com/tv";
+	fprintf(stderr, "[WPELauncher] main function\n");
+    //const char* url = "http://youtube.com/tv";
+	const char* url = "http://google.com";
 #ifdef WIN32
     const char * injected_bundle_path = nullptr;
 #else
@@ -246,16 +248,24 @@ int main(int argc, char* argv[])
     WKPageSetPageNavigationClient(page, &s_navigationClient.base);
 
     auto shellURL = WKURLCreateWithUTF8CString(url);
+	fprintf(stderr, "[WPELauncher]Debug1:%s\n", shellURL);
     WKPageLoadURL(page, shellURL);
+	fprintf(stderr, "[WPELauncher]Debug2\n");
     WKRelease(shellURL);
-
+	fprintf(stderr, "[WPELauncher]Debug3\n");
     g_main_loop_run(loop);
-
+	fprintf(stderr, "[WPELauncher]Debug4\n");
     WKRelease(view);
+	fprintf(stderr, "[WPELauncher]Debug5\n");
     WKRelease(pageConfiguration);
+	fprintf(stderr, "[WPELauncher]Debug6\n");
     WKRelease(pageGroup);
+	fprintf(stderr, "[WPELauncher]Debug7\n");
     WKRelease(context);
+	fprintf(stderr, "[WPELauncher]Debug8\n");
     WKRelease(preferences);
+	fprintf(stderr, "[WPELauncher]Debug9\n");
     g_main_loop_unref(loop);
+	fprintf(stderr, "[WPELauncher]Debug10\n");
     return 0;
 }
