@@ -39,47 +39,22 @@ WKPageNavigationClientV0 s_navigationClient = {
     { 0, nullptr },
     // decidePolicyForNavigationAction
     [](WKPageRef, WKNavigationActionRef, WKFramePolicyListenerRef listener, WKTypeRef, const void*) {
-		fprintf(stderr, "[WPELauncher] decidePolicyForNavigationAction\n");
+		fprintf(stderr, "[WPELauncher]decidePolicyForNavigationAction\n");
         WKFramePolicyListenerUse(listener);
     },
     // decidePolicyForNavigationResponse
     [](WKPageRef, WKNavigationResponseRef, WKFramePolicyListenerRef listener, WKTypeRef, const void*) {
-		fprintf(stderr, "[WPELauncher] decidePolicyForNavigationResponse\n");
+		fprintf(stderr, "[WPELauncher]decidePolicyForNavigationResponse\n");
         WKFramePolicyListenerUse(listener);
     },
-    // decidePolicyForPluginLoad
-	//[](WKPageRef page, WKPluginLoadPolicy currentPluginLoadPolicy, WKDictionaryRef pluginInfoDictionary, WKStringRef* unavailabilityDescription, const void* clientInfo) {
-	[](WKPageRef page, WKPluginLoadPolicy , WKDictionaryRef , WKStringRef* , const void* ) {
-		fprintf(stderr, "[WPELauncher] decidePolicyForPluginLoad:%s\n", page);
-	},
-    // didStartProvisionalNavigation
-	[](WKPageRef page, WKNavigationRef navigation, WKTypeRef userData, const void* clientInfo){
-		fprintf(stderr, "[WPELauncher] didStartProvisionalNavigation\n");
-	},
-    // didReceiveServerRedirectForProvisionalNavigation
-	[](WKPageRef page, WKNavigationRef navigation, WKTypeRef userData, const void* clientInfo){
-		fprintf(stderr, "[WPELauncher] didReceiveServerRedirectForProvisionalNavigation\n");
-	},
-    // didFailProvisionalNavigation
-	[](WKPageRef page, WKNavigationRef navigation, WKErrorRef error, WKTypeRef userData, const void* clientInfo){
-		fprintf(stderr, "[WPELauncher] didFailProvisionalNavigation\n");
-	},
-    // didCommitNavigation
-	[](WKPageRef page, WKNavigationRef navigation, WKTypeRef userData, const void* clientInfo) {
-		fprintf(stderr, "[WPELauncher] didCommitNavigation\n");
-	},
-    // didFinishNavigation
-	[](WKPageRef page, WKNavigationRef navigation, WKTypeRef userData, const void* clientInfo){
-		fprintf(stderr, "[WPELauncher] didFinishNavigation\n");
-	},
-    // didFailNavigation
-	[](WKPageRef page, WKNavigationRef navigation, WKErrorRef error, WKTypeRef userData, const void* clientInfo){
-		fprintf(stderr, "[WPELauncher] didFailNavigation\n");
-	},
-    // didFailProvisionalLoadInSubframe
-	[](WKPageRef page, WKNavigationRef navigation, WKFrameInfoRef subframe, WKErrorRef error, WKTypeRef userData, const void* clientInfo){
-		fprintf(stderr, "[WPELauncher] didFailProvisionalLoadInSubframe\n");
-	},
+    nullptr, // decidePolicyForPluginLoad
+    nullptr, // didStartProvisionalNavigation
+    nullptr, // didReceiveServerRedirectForProvisionalNavigation
+    nullptr, // didFailProvisionalNavigation
+    nullptr, // didCommitNavigation
+    nullptr, // didFinishNavigation
+    nullptr, // didFailNavigation
+    nullptr, // didFailProvisionalLoadInSubframe
     // didFinishDocumentLoad
     [](WKPageRef page, WKNavigationRef, WKTypeRef, const void*) {
         WKStringRef messageName = WKStringCreateWithUTF8CString("Hello");
@@ -96,47 +71,20 @@ WKPageNavigationClientV0 s_navigationClient = {
         WKRelease(messageBody);
         WKRelease(messageName);
     },
-    // didSameDocumentNavigation
-	[](WKPageRef page, WKNavigationRef navigation, WKSameDocumentNavigationType navigationType, WKTypeRef userData, const void* clientInfo){
-		fprintf(stderr, "[WPELauncher] didSameDocumentNavigation\n");
-	},
-    // renderingProgressDidChange
-	[](WKPageRef page, WKPageRenderingProgressEvents progressEvents, WKTypeRef userData, const void* clientInfo){
-		fprintf(stderr, "[WPELauncher] renderingProgressDidChange\n");
-	},
-    // canAuthenticateAgainstProtectionSpace
-	[](WKPageRef page, WKProtectionSpaceRef protectionSpace, const void* clientInfo) {
-		fprintf(stderr, "[WPELauncher] canAuthenticateAgainstProtectionSpace\n");
-	},
-    // didReceiveAuthenticationChallenge
-	[](WKPageRef page, WKAuthenticationChallengeRef challenge, const void* clientInfo){
-		fprintf(stderr, "[WPELauncher] didReceiveAuthenticationChallenge\n");
-	},
+    nullptr, // didSameDocumentNavigation
+    nullptr, // renderingProgressDidChange
+    nullptr, // canAuthenticateAgainstProtectionSpace
+    nullptr, // didReceiveAuthenticationChallenge
     // webProcessDidCrash
     [](WKPageRef page, const void*) {
         fprintf(stderr, "WARNING: WebProcess crashed: restarting it ...\n");
         WKPageReload(page);
     },
-    // copyWebCryptoMasterKey
-	[](WKPageRef page, const void* clientInfo){
-		fprintf(stderr, "[WPELauncher] copyWebCryptoMasterKey\n");
-	},
-    // didBeginNavigationGesture
-	[](WKPageRef page, const void* clientInfo){
-		fprintf(stderr, "[WPELauncher] didBeginNavigationGesture\n");
-	},
-    // willEndNavigationGesture
-	[](WKPageRef page, WKBackForwardListItemRef backForwardListItem, const void* clientInfo){
-		fprintf(stderr, "[WPELauncher] willEndNavigationGesture\n");
-	},
-    // didEndNavigationGesture
-	[](WKPageRef page, WKBackForwardListItemRef backForwardListItem, const void* clientInfo){
-		fprintf(stderr, "[WPELauncher] didEndNavigationGesture\n");
-	},
-    // didRemoveNavigationGestureSnapshot
-	[](WKPageRef page, const void* clientInfo){
-		fprintf(stderr, "[WPELauncher] didRemoveNavigationGestureSnapshot\n");
-	},
+    nullptr, // copyWebCryptoMasterKey
+    nullptr, // didBeginNavigationGesture
+    nullptr, // willEndNavigationGesture
+    nullptr, // didEndNavigationGesture
+    nullptr, // didRemoveNavigationGestureSnapshot
 };
 
 int main(int argc, char* argv[])
