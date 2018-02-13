@@ -48,7 +48,8 @@ WKPageNavigationClientV0 s_navigationClient = {
         WKFramePolicyListenerUse(listener);
     },
     // decidePolicyForPluginLoad
-	[](WKPageRef page, WKPluginLoadPolicy currentPluginLoadPolicy, WKDictionaryRef pluginInfoDictionary, WKStringRef* unavailabilityDescription, const void* clientInfo) {
+	//[](WKPageRef page, WKPluginLoadPolicy currentPluginLoadPolicy, WKDictionaryRef pluginInfoDictionary, WKStringRef* unavailabilityDescription, const void* clientInfo) {
+	[](WKPageRef , WKPluginLoadPolicy , WKDictionaryRef , WKStringRef* , const void* ) {
 		fprintf(stderr, "[WPELauncher] decidePolicyForPluginLoad\n");
 	},
     // didStartProvisionalNavigation
